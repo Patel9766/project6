@@ -1,0 +1,31 @@
+1]==Create a simple static website
+2]==Push to GitHub
+3]==Set Up GitHub Actions
+4]==AWS S3: Create & Configure Bucket
+5]==IAM User for GitHub Access
+Go to AWS IAM → Create a new user with Programmatic access
+Assign permission: AmazonS3FullAccess (or scoped custom policy)
+Save:
+Access Key ID
+Secret Access Key
+
+6]==Store Secrets in GitHub
+In your GitHub repository:
+Go to Settings > Secrets and variables > Actions
+Add secrets:
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_S3_BUCKET_NAME
+
+7]==Automate & Deploy
+Edit index.html locally
+Commit and push
+GitHub Actions auto-deploys to your S3 bucket
+Verify via the Static website hosting URL in S3 bucket properties
+
+8]==Connect Domain via Cloudflare
+Sign up at cloudflare.com and purchase a domain (e.g., project6.com)
+In the DNS panel, add a CNAME or A record:
+Name: @
+Target: Your S3 static website URL
+Cloudflare handles DNS resolution—and you can configure HTTPS too.
